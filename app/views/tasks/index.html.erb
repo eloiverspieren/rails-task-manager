@@ -1,0 +1,24 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+          <h2>HERE ARE YOUR TASKS</h2>
+          <%= link_to "Create a new task", "/tasks/new", :class => "btn btn-info" %><br><br>
+          <% @tasks.each do |task| %>
+            <div class="card">
+              <p><%= task.name %></p>
+              <%= link_to "Show", "/tasks/#{task.id}", :class => "btn btn-success" %>
+              <%= link_to "Edit", "/tasks/#{task.id}/edit", :class => "btn btn-warning" %>
+              <%= link_to "Delete", "/tasks/#{task.id}", method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
+            </div>
+          <% end %>
+        </div>
+   </div>
+</div>
+
+
